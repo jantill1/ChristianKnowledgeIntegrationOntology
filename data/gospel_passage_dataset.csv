@@ -1,0 +1,69 @@
+passage_id,book,reference,episode_id,episode_label,relationship
+matthew_1_1_17,Matthew,1:1-17,genealogies,Genealogies of Jesus,depicts
+luke_3_23_38,Luke,3:23-38,genealogies,Genealogies of Jesus,depicts
+matthew_1_18_25,Matthew,1:18-25,birth_announcements,Announcements concerning the birth of Jesus,depicts
+luke_1_26_38,Luke,1:26-38,birth_announcements,Announcements concerning the birth of Jesus,depicts
+matthew_2_1_12,Matthew,2:1-12,nativity,Nativity and early recognition of Jesus,depicts
+luke_2_1_20,Luke,2:1-20,nativity,Nativity and early recognition of Jesus,depicts
+matthew_3_13_17,Matthew,3:13-17,baptism,Baptism of Jesus,depicts
+mark_1_9_11,Mark,1:9-11,baptism,Baptism of Jesus,depicts
+luke_3_21_22,Luke,3:21-22,baptism,Baptism of Jesus,depicts
+john_1_29_34,John,1:29-34,baptism,Baptism of Jesus,testifiesTo
+matthew_4_1_11,Matthew,4:1-11,temptation,Temptation of Jesus,depicts
+mark_1_12_13,Mark,1:12-13,temptation,Temptation of Jesus,depicts
+luke_4_1_13,Luke,4:1-13,temptation,Temptation of Jesus,depicts
+matthew_4_18_22,Matthew,4:18-22,first_disciples,Calling of the first disciples,depicts
+mark_1_16_20,Mark,1:16-20,first_disciples,Calling of the first disciples,depicts
+luke_5_1_11,Luke,5:1-11,first_disciples,Calling of the first disciples,depicts
+john_1_35_51,John,1:35-51,first_disciples,Calling of the first disciples,depicts
+matthew_5_1_12,Matthew,5:1-12,beatitudes,Beatitudes and kingdom teaching,depicts
+luke_6_20_26,Luke,6:20-26,beatitudes,Beatitudes and kingdom teaching,depicts
+matthew_9_1_8,Matthew,9:1-8,paralytic,Healing of a paralytic,depicts
+mark_2_1_12,Mark,2:1-12,paralytic,Healing of a paralytic,depicts
+luke_5_17_26,Luke,5:17-26,paralytic,Healing of a paralytic,depicts
+matthew_14_13_21,Matthew,14:13-21,feeding_5000,Feeding of the five thousand,depicts
+mark_6_30_44,Mark,6:30-44,feeding_5000,Feeding of the five thousand,depicts
+luke_9_10_17,Luke,9:10-17,feeding_5000,Feeding of the five thousand,depicts
+john_6_1_15,John,6:1-15,feeding_5000,Feeding of the five thousand,depicts
+matthew_14_22_33,Matthew,14:22-33,walking_water,Jesus walking on water,depicts
+mark_6_45_52,Mark,6:45-52,walking_water,Jesus walking on water,depicts
+john_6_16_21,John,6:16-21,walking_water,Jesus walking on water,depicts
+matthew_17_1_13,Matthew,17:1-13,transfiguration,Transfiguration of Jesus,depicts
+mark_9_2_13,Mark,9:2-13,transfiguration,Transfiguration of Jesus,depicts
+luke_9_28_36,Luke,9:28-36,transfiguration,Transfiguration of Jesus,depicts
+matthew_21_1_11,Matthew,21:1-11,triumphal_entry,Triumphal entry into Jerusalem,depicts
+mark_11_1_11,Mark,11:1-11,triumphal_entry,Triumphal entry into Jerusalem,depicts
+luke_19_28_40,Luke,19:28-40,triumphal_entry,Triumphal entry into Jerusalem,depicts
+john_12_12_19,John,12:12-19,triumphal_entry,Triumphal entry into Jerusalem,depicts
+matthew_26_17_30,Matthew,26:17-30,last_supper,Last Supper and final meal teaching,depicts
+mark_14_12_26,Mark,14:12-26,last_supper,Last Supper and final meal teaching,depicts
+luke_22_7_38,Luke,22:7-38,last_supper,Last Supper and final meal teaching,depicts
+john_13_1_38,John,13:1-38,last_supper,Last Supper and final meal teaching,contextualizes
+matthew_26_36_56,Matthew,26:36-56,gethsemane,Prayer and arrest in Gethsemane,depicts
+mark_14_32_52,Mark,14:32-52,gethsemane,Prayer and arrest in Gethsemane,depicts
+luke_22_39_53,Luke,22:39-53,gethsemane,Prayer and arrest in Gethsemane,depicts
+john_18_1_11,John,18:1-11,gethsemane,Prayer and arrest in Gethsemane,depicts
+matthew_26_57_27_26,Matthew,26:57-27:26,trial,Trials of Jesus,depicts
+mark_14_53_15_15,Mark,14:53-15:15,trial,Trials of Jesus,depicts
+luke_22_54_23_25,Luke,22:54-23:25,trial,Trials of Jesus,depicts
+john_18_12_19_16,John,18:12-19:16,trial,Trials of Jesus,depicts
+matthew_27_27_56,Matthew,27:27-56,crucifixion,Crucifixion and death of Jesus,depicts
+mark_15_16_41,Mark,15:16-41,crucifixion,Crucifixion and death of Jesus,depicts
+luke_23_26_49,Luke,23:26-49,crucifixion,Crucifixion and death of Jesus,depicts
+john_19_16_37,John,19:16-37,crucifixion,Crucifixion and death of Jesus,depicts
+matthew_27_57_66,Matthew,27:57-66,burial,Burial of Jesus,depicts
+mark_15_42_47,Mark,15:42-47,burial,Burial of Jesus,depicts
+luke_23_50_56,Luke,23:50-56,burial,Burial of Jesus,depicts
+john_19_38_42,John,19:38-42,burial,Burial of Jesus,depicts
+matthew_28_1_10,Matthew,28:1-10,empty_tomb,Discovery of the empty tomb,depicts
+mark_16_1_8,Mark,16:1-8,empty_tomb,Discovery of the empty tomb,depicts
+luke_24_1_12,Luke,24:1-12,empty_tomb,Discovery of the empty tomb,depicts
+john_20_1_18,John,20:1-18,empty_tomb,Discovery of the empty tomb,depicts
+matthew_28_9_20,Matthew,28:9-20,appearances,Post-resurrection appearances,depicts
+mark_16_9_20,Mark,16:9-20,appearances,Post-resurrection appearances,textuallyQualified
+luke_24_13_49,Luke,24:13-49,appearances,Post-resurrection appearances,depicts
+john_20_19_21_23,John,20:19-21:23,appearances,Post-resurrection appearances,depicts
+matthew_28_16_20,Matthew,28:16-20,commission,Commissioning and sending of disciples,depicts
+mark_16_14_18,Mark,16:14-18,commission,Commissioning and sending of disciples,textuallyQualified
+luke_24_44_49,Luke,24:44-49,commission,Commissioning and sending of disciples,depicts
+john_20_21_23,John,20:21-23,commission,Commissioning and sending of disciples,depicts

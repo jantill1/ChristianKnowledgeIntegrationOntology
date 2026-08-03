@@ -1,0 +1,127 @@
+{
+  "books": 4,
+  "episodes": 20,
+  "passage_units": 68,
+  "typed_assertions": 68,
+  "per_book": {
+    "Matthew": 20,
+    "Luke": 19,
+    "Mark": 16,
+    "John": 13
+  },
+  "per_episode": {
+    "genealogies": 2,
+    "birth_announcements": 2,
+    "nativity": 2,
+    "baptism": 4,
+    "temptation": 3,
+    "first_disciples": 4,
+    "beatitudes": 2,
+    "paralytic": 3,
+    "feeding_5000": 4,
+    "walking_water": 3,
+    "transfiguration": 3,
+    "triumphal_entry": 4,
+    "last_supper": 4,
+    "gethsemane": 4,
+    "trial": 4,
+    "crucifixion": 4,
+    "burial": 4,
+    "empty_tomb": 4,
+    "appearances": 4,
+    "commission": 4
+  },
+  "per_relation": {
+    "depicts": 64,
+    "testifiesTo": 1,
+    "contextualizes": 1,
+    "textuallyQualified": 2
+  },
+  "four_gospel_episodes": [
+    "baptism",
+    "first_disciples",
+    "feeding_5000",
+    "triumphal_entry",
+    "last_supper",
+    "gethsemane",
+    "trial",
+    "crucifixion",
+    "burial",
+    "empty_tomb",
+    "appearances",
+    "commission"
+  ],
+  "synoptic_episodes": [
+    "baptism",
+    "temptation",
+    "first_disciples",
+    "paralytic",
+    "feeding_5000",
+    "transfiguration",
+    "triumphal_entry",
+    "last_supper",
+    "gethsemane",
+    "trial",
+    "crucifixion",
+    "burial",
+    "empty_tomb",
+    "appearances",
+    "commission"
+  ],
+  "integrity": {
+    "missing_books": [],
+    "unknown_episode_keys": [],
+    "duplicate_passage_ids": 0,
+    "episodes_without_evidence": []
+  },
+  "competency_queries": {
+    "CQ1": 68,
+    "CQ2": {
+      "Matthew": 20,
+      "Luke": 19,
+      "Mark": 16,
+      "John": 13
+    },
+    "CQ3": [
+      "baptism",
+      "first_disciples",
+      "feeding_5000",
+      "triumphal_entry",
+      "last_supper",
+      "gethsemane",
+      "trial",
+      "crucifixion",
+      "burial",
+      "empty_tomb",
+      "appearances",
+      "commission"
+    ],
+    "CQ4": [
+      "Matthew 14:13-21",
+      "Mark 6:30-44",
+      "Luke 9:10-17",
+      "John 6:1-15"
+    ],
+    "CQ5": [
+      "Mark 16:9-20",
+      "Mark 16:14-18"
+    ],
+    "CQ6": [
+      "baptism",
+      "temptation",
+      "first_disciples",
+      "paralytic",
+      "feeding_5000",
+      "transfiguration",
+      "triumphal_entry",
+      "last_supper",
+      "gethsemane",
+      "trial",
+      "crucifixion",
+      "burial",
+      "empty_tomb",
+      "appearances",
+      "commission"
+    ]
+  }
+}
