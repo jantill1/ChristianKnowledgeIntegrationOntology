@@ -4,6 +4,8 @@ CKIO is a provenance-aware OWL/RDF proof of concept for integrating Christian
 knowledge without treating scriptural evidence, computational assertions, and
 interpretive claims as equivalent facts.
 
+Repository: https://github.com/jantill1/ChristianLnowledgeIntegrationOntology
+
 The current release models the four canonical Gospels through 20 curated
 analytical episode groupings, 68 passage units, 68 typed mappings, and 68
 reified computational assertions. It is an engineering prototype, not a

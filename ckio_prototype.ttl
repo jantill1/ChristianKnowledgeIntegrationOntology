@@ -1,0 +1,206 @@
+@prefix ckio: <https://example.org/ckio/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+ckio: a owl:Ontology ; rdfs:label "Christian Knowledge Integration Ontology prototype" ; dcterms:license <https://creativecommons.org/licenses/by/4.0/> .
+ckio:ChristianResource a owl:Class .
+ckio:BiblicalBook a owl:Class .
+ckio:Passage a owl:Class .
+ckio:Episode a owl:Class .
+ckio:InterpretiveClaim a owl:Class .
+ckio:ComputationalAssertion a owl:Class .
+ckio:Tradition a owl:Class .
+ckio:ValidationActivity a owl:Class .
+ckio:isPartOf a owl:ObjectProperty .
+ckio:depicts a owl:ObjectProperty .
+ckio:testifiesTo a owl:ObjectProperty .
+ckio:contextualizes a owl:ObjectProperty .
+ckio:textuallyQualified a owl:ObjectProperty .
+ckio:hasEvidence a owl:ObjectProperty .
+ckio:proposesEpisode a owl:ObjectProperty .
+ckio:usesPredicate a owl:ObjectProperty .
+ckio:assertedBy a owl:ObjectProperty .
+ckio:hasStatus a owl:ObjectProperty .
+
+ckio:BiblicalBook rdfs:subClassOf ckio:ChristianResource .
+ckio:Passage rdfs:subClassOf ckio:ChristianResource .
+ckio:ComputationalAssertion rdfs:subClassOf prov:Entity .
+ckio:InterpretiveClaim rdfs:subClassOf prov:Entity .
+ckio:ValidationActivity rdfs:subClassOf prov:Activity .
+ckio:Passage owl:disjointWith ckio:InterpretiveClaim .
+ckio:ComputationalAssertion owl:disjointWith ckio:InterpretiveClaim .
+ckio:isPartOf rdfs:domain ckio:Passage ; rdfs:range ckio:BiblicalBook .
+ckio:hasEvidence rdfs:domain ckio:ComputationalAssertion ; rdfs:range ckio:Passage .
+ckio:proposesEpisode rdfs:domain ckio:ComputationalAssertion ; rdfs:range ckio:Episode .
+ckio:usesPredicate rdfs:domain ckio:ComputationalAssertion ; rdfs:range rdf:Property .
+ckio:depicts rdfs:domain ckio:Passage ; rdfs:range ckio:Episode .
+ckio:testifiesTo rdfs:domain ckio:Passage ; rdfs:range ckio:Episode .
+ckio:contextualizes rdfs:domain ckio:Passage ; rdfs:range ckio:Episode .
+ckio:textuallyQualified rdfs:domain ckio:Passage ; rdfs:range ckio:Episode .
+ckio:ChatGPT a prov:SoftwareAgent ; rdfs:label "OpenAI ChatGPT (GPT-5 family)" .
+ckio:PrototypeConstruction a prov:Activity ; rdfs:label "CKIO prototype construction activity" ; prov:wasAssociatedWith ckio:ChatGPT ; prov:generatedAtTime "2026-08-03"^^xsd:date .
+ckio:RuleAccepted a owl:NamedIndividual ; rdfs:label "Accepted by source-anchoring rule" .
+ckio:Matthew a ckio:BiblicalBook ; rdfs:label "Gospel according to Matthew" .
+ckio:Mark a ckio:BiblicalBook ; rdfs:label "Gospel according to Mark" .
+ckio:Luke a ckio:BiblicalBook ; rdfs:label "Gospel according to Luke" .
+ckio:John a ckio:BiblicalBook ; rdfs:label "Gospel according to John" .
+ckio:episode_genealogies a ckio:Episode ; rdfs:label "Genealogies of Jesus" .
+ckio:episode_birth_announcements a ckio:Episode ; rdfs:label "Announcements concerning the birth of Jesus" .
+ckio:episode_nativity a ckio:Episode ; rdfs:label "Nativity and early recognition of Jesus" .
+ckio:episode_baptism a ckio:Episode ; rdfs:label "Baptism of Jesus" .
+ckio:episode_temptation a ckio:Episode ; rdfs:label "Temptation of Jesus" .
+ckio:episode_first_disciples a ckio:Episode ; rdfs:label "Calling of the first disciples" .
+ckio:episode_beatitudes a ckio:Episode ; rdfs:label "Beatitudes and kingdom teaching" .
+ckio:episode_paralytic a ckio:Episode ; rdfs:label "Healing of a paralytic" .
+ckio:episode_feeding_5000 a ckio:Episode ; rdfs:label "Feeding of the five thousand" .
+ckio:episode_walking_water a ckio:Episode ; rdfs:label "Jesus walking on water" .
+ckio:episode_transfiguration a ckio:Episode ; rdfs:label "Transfiguration of Jesus" .
+ckio:episode_triumphal_entry a ckio:Episode ; rdfs:label "Triumphal entry into Jerusalem" .
+ckio:episode_last_supper a ckio:Episode ; rdfs:label "Last Supper and final meal teaching" .
+ckio:episode_gethsemane a ckio:Episode ; rdfs:label "Prayer and arrest in Gethsemane" .
+ckio:episode_trial a ckio:Episode ; rdfs:label "Trials of Jesus" .
+ckio:episode_crucifixion a ckio:Episode ; rdfs:label "Crucifixion and death of Jesus" .
+ckio:episode_burial a ckio:Episode ; rdfs:label "Burial of Jesus" .
+ckio:episode_empty_tomb a ckio:Episode ; rdfs:label "Discovery of the empty tomb" .
+ckio:episode_appearances a ckio:Episode ; rdfs:label "Post-resurrection appearances" .
+ckio:episode_commission a ckio:Episode ; rdfs:label "Commissioning and sending of disciples" .
+ckio:matthew_1_1_17 a ckio:Passage ; rdfs:label "Matthew 1:1-17" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_genealogies .
+ckio:assertion_matthew_1_1_17 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_1_1_17 ; ckio:proposesEpisode ckio:episode_genealogies ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_3_23_38 a ckio:Passage ; rdfs:label "Luke 3:23-38" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_genealogies .
+ckio:assertion_luke_3_23_38 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_3_23_38 ; ckio:proposesEpisode ckio:episode_genealogies ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_1_18_25 a ckio:Passage ; rdfs:label "Matthew 1:18-25" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_birth_announcements .
+ckio:assertion_matthew_1_18_25 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_1_18_25 ; ckio:proposesEpisode ckio:episode_birth_announcements ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_1_26_38 a ckio:Passage ; rdfs:label "Luke 1:26-38" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_birth_announcements .
+ckio:assertion_luke_1_26_38 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_1_26_38 ; ckio:proposesEpisode ckio:episode_birth_announcements ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_2_1_12 a ckio:Passage ; rdfs:label "Matthew 2:1-12" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_nativity .
+ckio:assertion_matthew_2_1_12 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_2_1_12 ; ckio:proposesEpisode ckio:episode_nativity ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_2_1_20 a ckio:Passage ; rdfs:label "Luke 2:1-20" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_nativity .
+ckio:assertion_luke_2_1_20 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_2_1_20 ; ckio:proposesEpisode ckio:episode_nativity ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_3_13_17 a ckio:Passage ; rdfs:label "Matthew 3:13-17" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_baptism .
+ckio:assertion_matthew_3_13_17 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_3_13_17 ; ckio:proposesEpisode ckio:episode_baptism ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_1_9_11 a ckio:Passage ; rdfs:label "Mark 1:9-11" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_baptism .
+ckio:assertion_mark_1_9_11 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_1_9_11 ; ckio:proposesEpisode ckio:episode_baptism ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_3_21_22 a ckio:Passage ; rdfs:label "Luke 3:21-22" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_baptism .
+ckio:assertion_luke_3_21_22 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_3_21_22 ; ckio:proposesEpisode ckio:episode_baptism ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_1_29_34 a ckio:Passage ; rdfs:label "John 1:29-34" ; ckio:isPartOf ckio:John ; ckio:testifiesTo ckio:episode_baptism .
+ckio:assertion_john_1_29_34 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_1_29_34 ; ckio:proposesEpisode ckio:episode_baptism ; ckio:usesPredicate ckio:testifiesTo ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_4_1_11 a ckio:Passage ; rdfs:label "Matthew 4:1-11" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_temptation .
+ckio:assertion_matthew_4_1_11 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_4_1_11 ; ckio:proposesEpisode ckio:episode_temptation ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_1_12_13 a ckio:Passage ; rdfs:label "Mark 1:12-13" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_temptation .
+ckio:assertion_mark_1_12_13 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_1_12_13 ; ckio:proposesEpisode ckio:episode_temptation ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_4_1_13 a ckio:Passage ; rdfs:label "Luke 4:1-13" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_temptation .
+ckio:assertion_luke_4_1_13 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_4_1_13 ; ckio:proposesEpisode ckio:episode_temptation ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_4_18_22 a ckio:Passage ; rdfs:label "Matthew 4:18-22" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_first_disciples .
+ckio:assertion_matthew_4_18_22 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_4_18_22 ; ckio:proposesEpisode ckio:episode_first_disciples ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_1_16_20 a ckio:Passage ; rdfs:label "Mark 1:16-20" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_first_disciples .
+ckio:assertion_mark_1_16_20 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_1_16_20 ; ckio:proposesEpisode ckio:episode_first_disciples ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_5_1_11 a ckio:Passage ; rdfs:label "Luke 5:1-11" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_first_disciples .
+ckio:assertion_luke_5_1_11 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_5_1_11 ; ckio:proposesEpisode ckio:episode_first_disciples ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_1_35_51 a ckio:Passage ; rdfs:label "John 1:35-51" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_first_disciples .
+ckio:assertion_john_1_35_51 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_1_35_51 ; ckio:proposesEpisode ckio:episode_first_disciples ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_5_1_12 a ckio:Passage ; rdfs:label "Matthew 5:1-12" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_beatitudes .
+ckio:assertion_matthew_5_1_12 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_5_1_12 ; ckio:proposesEpisode ckio:episode_beatitudes ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_6_20_26 a ckio:Passage ; rdfs:label "Luke 6:20-26" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_beatitudes .
+ckio:assertion_luke_6_20_26 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_6_20_26 ; ckio:proposesEpisode ckio:episode_beatitudes ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_9_1_8 a ckio:Passage ; rdfs:label "Matthew 9:1-8" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_paralytic .
+ckio:assertion_matthew_9_1_8 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_9_1_8 ; ckio:proposesEpisode ckio:episode_paralytic ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_2_1_12 a ckio:Passage ; rdfs:label "Mark 2:1-12" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_paralytic .
+ckio:assertion_mark_2_1_12 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_2_1_12 ; ckio:proposesEpisode ckio:episode_paralytic ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_5_17_26 a ckio:Passage ; rdfs:label "Luke 5:17-26" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_paralytic .
+ckio:assertion_luke_5_17_26 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_5_17_26 ; ckio:proposesEpisode ckio:episode_paralytic ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_14_13_21 a ckio:Passage ; rdfs:label "Matthew 14:13-21" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_feeding_5000 .
+ckio:assertion_matthew_14_13_21 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_14_13_21 ; ckio:proposesEpisode ckio:episode_feeding_5000 ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_6_30_44 a ckio:Passage ; rdfs:label "Mark 6:30-44" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_feeding_5000 .
+ckio:assertion_mark_6_30_44 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_6_30_44 ; ckio:proposesEpisode ckio:episode_feeding_5000 ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_9_10_17 a ckio:Passage ; rdfs:label "Luke 9:10-17" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_feeding_5000 .
+ckio:assertion_luke_9_10_17 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_9_10_17 ; ckio:proposesEpisode ckio:episode_feeding_5000 ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_6_1_15 a ckio:Passage ; rdfs:label "John 6:1-15" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_feeding_5000 .
+ckio:assertion_john_6_1_15 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_6_1_15 ; ckio:proposesEpisode ckio:episode_feeding_5000 ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_14_22_33 a ckio:Passage ; rdfs:label "Matthew 14:22-33" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_walking_water .
+ckio:assertion_matthew_14_22_33 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_14_22_33 ; ckio:proposesEpisode ckio:episode_walking_water ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_6_45_52 a ckio:Passage ; rdfs:label "Mark 6:45-52" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_walking_water .
+ckio:assertion_mark_6_45_52 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_6_45_52 ; ckio:proposesEpisode ckio:episode_walking_water ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_6_16_21 a ckio:Passage ; rdfs:label "John 6:16-21" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_walking_water .
+ckio:assertion_john_6_16_21 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_6_16_21 ; ckio:proposesEpisode ckio:episode_walking_water ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_17_1_13 a ckio:Passage ; rdfs:label "Matthew 17:1-13" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_transfiguration .
+ckio:assertion_matthew_17_1_13 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_17_1_13 ; ckio:proposesEpisode ckio:episode_transfiguration ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_9_2_13 a ckio:Passage ; rdfs:label "Mark 9:2-13" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_transfiguration .
+ckio:assertion_mark_9_2_13 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_9_2_13 ; ckio:proposesEpisode ckio:episode_transfiguration ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_9_28_36 a ckio:Passage ; rdfs:label "Luke 9:28-36" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_transfiguration .
+ckio:assertion_luke_9_28_36 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_9_28_36 ; ckio:proposesEpisode ckio:episode_transfiguration ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_21_1_11 a ckio:Passage ; rdfs:label "Matthew 21:1-11" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_triumphal_entry .
+ckio:assertion_matthew_21_1_11 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_21_1_11 ; ckio:proposesEpisode ckio:episode_triumphal_entry ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_11_1_11 a ckio:Passage ; rdfs:label "Mark 11:1-11" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_triumphal_entry .
+ckio:assertion_mark_11_1_11 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_11_1_11 ; ckio:proposesEpisode ckio:episode_triumphal_entry ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_19_28_40 a ckio:Passage ; rdfs:label "Luke 19:28-40" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_triumphal_entry .
+ckio:assertion_luke_19_28_40 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_19_28_40 ; ckio:proposesEpisode ckio:episode_triumphal_entry ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_12_12_19 a ckio:Passage ; rdfs:label "John 12:12-19" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_triumphal_entry .
+ckio:assertion_john_12_12_19 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_12_12_19 ; ckio:proposesEpisode ckio:episode_triumphal_entry ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_26_17_30 a ckio:Passage ; rdfs:label "Matthew 26:17-30" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_last_supper .
+ckio:assertion_matthew_26_17_30 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_26_17_30 ; ckio:proposesEpisode ckio:episode_last_supper ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_14_12_26 a ckio:Passage ; rdfs:label "Mark 14:12-26" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_last_supper .
+ckio:assertion_mark_14_12_26 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_14_12_26 ; ckio:proposesEpisode ckio:episode_last_supper ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_22_7_38 a ckio:Passage ; rdfs:label "Luke 22:7-38" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_last_supper .
+ckio:assertion_luke_22_7_38 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_22_7_38 ; ckio:proposesEpisode ckio:episode_last_supper ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_13_1_38 a ckio:Passage ; rdfs:label "John 13:1-38" ; ckio:isPartOf ckio:John ; ckio:contextualizes ckio:episode_last_supper .
+ckio:assertion_john_13_1_38 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_13_1_38 ; ckio:proposesEpisode ckio:episode_last_supper ; ckio:usesPredicate ckio:contextualizes ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_26_36_56 a ckio:Passage ; rdfs:label "Matthew 26:36-56" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_gethsemane .
+ckio:assertion_matthew_26_36_56 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_26_36_56 ; ckio:proposesEpisode ckio:episode_gethsemane ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_14_32_52 a ckio:Passage ; rdfs:label "Mark 14:32-52" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_gethsemane .
+ckio:assertion_mark_14_32_52 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_14_32_52 ; ckio:proposesEpisode ckio:episode_gethsemane ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_22_39_53 a ckio:Passage ; rdfs:label "Luke 22:39-53" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_gethsemane .
+ckio:assertion_luke_22_39_53 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_22_39_53 ; ckio:proposesEpisode ckio:episode_gethsemane ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_18_1_11 a ckio:Passage ; rdfs:label "John 18:1-11" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_gethsemane .
+ckio:assertion_john_18_1_11 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_18_1_11 ; ckio:proposesEpisode ckio:episode_gethsemane ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_26_57_27_26 a ckio:Passage ; rdfs:label "Matthew 26:57-27:26" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_trial .
+ckio:assertion_matthew_26_57_27_26 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_26_57_27_26 ; ckio:proposesEpisode ckio:episode_trial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_14_53_15_15 a ckio:Passage ; rdfs:label "Mark 14:53-15:15" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_trial .
+ckio:assertion_mark_14_53_15_15 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_14_53_15_15 ; ckio:proposesEpisode ckio:episode_trial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_22_54_23_25 a ckio:Passage ; rdfs:label "Luke 22:54-23:25" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_trial .
+ckio:assertion_luke_22_54_23_25 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_22_54_23_25 ; ckio:proposesEpisode ckio:episode_trial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_18_12_19_16 a ckio:Passage ; rdfs:label "John 18:12-19:16" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_trial .
+ckio:assertion_john_18_12_19_16 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_18_12_19_16 ; ckio:proposesEpisode ckio:episode_trial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_27_27_56 a ckio:Passage ; rdfs:label "Matthew 27:27-56" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_crucifixion .
+ckio:assertion_matthew_27_27_56 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_27_27_56 ; ckio:proposesEpisode ckio:episode_crucifixion ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_15_16_41 a ckio:Passage ; rdfs:label "Mark 15:16-41" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_crucifixion .
+ckio:assertion_mark_15_16_41 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_15_16_41 ; ckio:proposesEpisode ckio:episode_crucifixion ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_23_26_49 a ckio:Passage ; rdfs:label "Luke 23:26-49" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_crucifixion .
+ckio:assertion_luke_23_26_49 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_23_26_49 ; ckio:proposesEpisode ckio:episode_crucifixion ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_19_16_37 a ckio:Passage ; rdfs:label "John 19:16-37" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_crucifixion .
+ckio:assertion_john_19_16_37 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_19_16_37 ; ckio:proposesEpisode ckio:episode_crucifixion ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_27_57_66 a ckio:Passage ; rdfs:label "Matthew 27:57-66" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_burial .
+ckio:assertion_matthew_27_57_66 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_27_57_66 ; ckio:proposesEpisode ckio:episode_burial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_15_42_47 a ckio:Passage ; rdfs:label "Mark 15:42-47" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_burial .
+ckio:assertion_mark_15_42_47 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_15_42_47 ; ckio:proposesEpisode ckio:episode_burial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_23_50_56 a ckio:Passage ; rdfs:label "Luke 23:50-56" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_burial .
+ckio:assertion_luke_23_50_56 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_23_50_56 ; ckio:proposesEpisode ckio:episode_burial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_19_38_42 a ckio:Passage ; rdfs:label "John 19:38-42" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_burial .
+ckio:assertion_john_19_38_42 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_19_38_42 ; ckio:proposesEpisode ckio:episode_burial ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_28_1_10 a ckio:Passage ; rdfs:label "Matthew 28:1-10" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_empty_tomb .
+ckio:assertion_matthew_28_1_10 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_28_1_10 ; ckio:proposesEpisode ckio:episode_empty_tomb ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_16_1_8 a ckio:Passage ; rdfs:label "Mark 16:1-8" ; ckio:isPartOf ckio:Mark ; ckio:depicts ckio:episode_empty_tomb .
+ckio:assertion_mark_16_1_8 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_16_1_8 ; ckio:proposesEpisode ckio:episode_empty_tomb ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_24_1_12 a ckio:Passage ; rdfs:label "Luke 24:1-12" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_empty_tomb .
+ckio:assertion_luke_24_1_12 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_24_1_12 ; ckio:proposesEpisode ckio:episode_empty_tomb ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_20_1_18 a ckio:Passage ; rdfs:label "John 20:1-18" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_empty_tomb .
+ckio:assertion_john_20_1_18 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_20_1_18 ; ckio:proposesEpisode ckio:episode_empty_tomb ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_28_9_20 a ckio:Passage ; rdfs:label "Matthew 28:9-20" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_appearances .
+ckio:assertion_matthew_28_9_20 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_28_9_20 ; ckio:proposesEpisode ckio:episode_appearances ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_16_9_20 a ckio:Passage ; rdfs:label "Mark 16:9-20" ; ckio:isPartOf ckio:Mark ; ckio:textuallyQualified ckio:episode_appearances .
+ckio:assertion_mark_16_9_20 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_16_9_20 ; ckio:proposesEpisode ckio:episode_appearances ; ckio:usesPredicate ckio:textuallyQualified ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_24_13_49 a ckio:Passage ; rdfs:label "Luke 24:13-49" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_appearances .
+ckio:assertion_luke_24_13_49 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_24_13_49 ; ckio:proposesEpisode ckio:episode_appearances ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_20_19_21_23 a ckio:Passage ; rdfs:label "John 20:19-21:23" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_appearances .
+ckio:assertion_john_20_19_21_23 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_20_19_21_23 ; ckio:proposesEpisode ckio:episode_appearances ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:matthew_28_16_20 a ckio:Passage ; rdfs:label "Matthew 28:16-20" ; ckio:isPartOf ckio:Matthew ; ckio:depicts ckio:episode_commission .
+ckio:assertion_matthew_28_16_20 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:matthew_28_16_20 ; ckio:proposesEpisode ckio:episode_commission ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:mark_16_14_18 a ckio:Passage ; rdfs:label "Mark 16:14-18" ; ckio:isPartOf ckio:Mark ; ckio:textuallyQualified ckio:episode_commission .
+ckio:assertion_mark_16_14_18 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:mark_16_14_18 ; ckio:proposesEpisode ckio:episode_commission ; ckio:usesPredicate ckio:textuallyQualified ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:luke_24_44_49 a ckio:Passage ; rdfs:label "Luke 24:44-49" ; ckio:isPartOf ckio:Luke ; ckio:depicts ckio:episode_commission .
+ckio:assertion_luke_24_44_49 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:luke_24_44_49 ; ckio:proposesEpisode ckio:episode_commission ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
+ckio:john_20_21_23 a ckio:Passage ; rdfs:label "John 20:21-23" ; ckio:isPartOf ckio:John ; ckio:depicts ckio:episode_commission .
+ckio:assertion_john_20_21_23 a ckio:ComputationalAssertion ; ckio:hasEvidence ckio:john_20_21_23 ; ckio:proposesEpisode ckio:episode_commission ; ckio:usesPredicate ckio:depicts ; ckio:hasStatus ckio:RuleAccepted ; prov:wasGeneratedBy ckio:PrototypeConstruction .
